@@ -22,7 +22,7 @@ body {
     width: 100%;
     top: 0;
     left: 0;
-    background: rgba(98, 98, 98, 0.7);
+    background: rgb(98, 98, 98);
     opacity: 0;
     visibility: hidden;
     transition: opacity .3s;
@@ -38,7 +38,7 @@ button:focus {
 }
 
 body.open .screen{
-    opacity: 1;
+    opacity: 0.5;
     visibility: visible;
 }
 
@@ -71,7 +71,7 @@ nav {
     box-sizing: border-box;
     color: #fff;
     width: 130px;
-    height: 130px;
+    height: inherit;
     line-height: 130px;
     border: 1px solid #000;
     text-align: center;
@@ -107,8 +107,12 @@ main {
     display: flex;
     margin: 0 20px 80px 20px
 }
+.content img {
+    flex: 1 1;
+}
 .content .content-text {
     padding: 0 25px;
+    flex-shrink: 1;
 }
 .content .content-text h2 {
     letter-spacing: 0.8px;
@@ -228,40 +232,36 @@ background-image: url(../imgs/facebook.png)
     }
 
     .nav-top {
-        position: fixed;
-        right: 0;
-        top: 0;
-        margin-right: 0;
+        /* position: absolute; */
+        margin-top: 130px;
         display: flex;
         flex-direction: column;
-        height: 100vh;
-        width: 150px;
-        background: #fff;
-        transform: translate(100%, 0);
-
-        transition: transform .6s;
-    }
-    .nav-item {
-        width: inherit;
-        border: none;
-        background-color: 
-        
+        width: 80%;
+        /* background: #fff; */
+        z-index: 1;
+        opacity: 0;
+        display: none;
+        /* height: 0; */
+        /* transform: translate(0, -100%); */
+        transition: opacity .6s;
     }
     body.open .nav-top {
-        transform: translate(0, 0);
+        /* transform: translate(0, 0); */
+        opacity: 1;
+        display: flex;
+        
     }
-
-    .nav-top .nav-item:not(:last-child) {
-        margin: 0;
-    }
+    
     .nav-top .nav-item {
-        padding: 4px 36px;
-        border-bottom: 1px solid rgba(98, 98, 98, 0.7);
-        text-align: center;
-    }
-
-    .nav-top .nav-item:hover {
-        background: rgba(98, 98, 98, 0.7);
+        width: 100%;
+        border: none;
         color: #fff;
+        margin-top: 5px;   
+        text-align: center;
+        background: rgba(100, 100, 100, 0.8);
+    }
+    .nav-top .nav-item:hover {
+        color: #fff;
+        background-color: rgb(80, 80, 80);
     }
 }
